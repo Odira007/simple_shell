@@ -11,21 +11,20 @@
  * @c: pointer to errors counter
  * Return: void
  */
-void proc_handler(char *app, char *path, char **toks, char *err_msg, unsigned int *c);
+void proc_handler(char *app, char *path, char **toks, char *err_msg, unsigned int *c)
 {
 	pid_t child_pid;
 
 	child_pid = fork();
 	if (child_pid == -1)
 		exit(-1);
-	// if were in the child process
+
 	if (child_pid == 0)
 	{
 		if (execve(path, toks, NULL) == -1)
 		{
 			*c = *c + 1;
-			//create a function to write error here
-			printf("%s\n", *err_msg);
+			write_error(app, path, *c, err_msg);
 			exit(1);
 		}
 	}
