@@ -13,8 +13,7 @@ Interval find_str_seq(const char *s, const char *sep, int idx)
 {
 	Interval itv;
 	int i = 0, j = 0, k = 1;
-	int n = find_chars_number(s, sep, idx) + 1;
-	int array[n];
+	int array[1024];
 	int o = 0;
 
 	/* printf("number of separators in the string: %d\n", n); */
