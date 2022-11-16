@@ -19,7 +19,6 @@ Interval find_str_seq(const char *s, const char *sep, int idx)
 
 	/* printf("number of separators in the string: %d\n", n); */
 	array[0] = idx;
-
 	while (sep[i])
 	{
 		j = idx;
